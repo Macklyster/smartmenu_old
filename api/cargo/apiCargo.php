@@ -23,20 +23,20 @@ class apiCargo extends Model {
 
     public function save(Cargo $obj) {
         if (empty($obj->id)) {
+            echo "<script>history.go(-2);</script>";
             return $this->Insert($obj, 'cargo');
         } else {
+            echo "<script>history.go(-2);</script>";
             return $this->Update($obj, array('id' => $obj->id), 'cargo');
         }
-        echo "<div class='alert alert-success'>
-				Registro Salvo/Atualizado com Sucesso
-				</div>";
     }
 
     public function delet(Cargo $obj) {
         if (!empty($obj->id)) {
+            echo "<script>history.go(-2);</script>";
             return $this->Delete($obj, array('id' => $obj->id), 'cargo');
         } else {
-            echo 'Erro ao excluir, merda tente novamente!';
+            echo 'Erro ao excluir, tente novamente!';
         }
     }
 

@@ -16,15 +16,7 @@
                        value="<?php echo $view_dados->cargo; ?>" placeholder="Informe o cargo">
             </div>
 
-            <button class="btn btn-success" onclick="showConfirm" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>
-
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-            </div>
-
+            <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-floppy-disk"></i> Gravar</button>                        
         </form>
     </div>
 </div>

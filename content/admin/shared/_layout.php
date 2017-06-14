@@ -5,9 +5,9 @@
         <base href="<?php echo APP_ROOT; ?>/admin">
         <link rel="icon" href="content/admin/img/login/login_smartmenu2.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="content/admin/img/login/login_smartmenu2.ico" type="image/x-icon" />
-        <link href="content/assets/css/alertify.default.css" type="text/css" rel="stylesheet">
-        <link href="content/assets/css/alertify.bootstrap.css" type="text/css" rel="stylesheet">
         <link href="content/assets/bootstrap-3.3.7-dist/css/bootstrap.css" type="text/css" rel="stylesheet">
+        <link href="content/assets/css/alertify.core.css" type="text/css" rel="stylesheet">
+        <link href="content/assets/css/alertify.default.css" type="text/css" rel="stylesheet">
         <link href="content/admin/css/style.css" type="text/css" rel="stylesheet">
         <link href="content/assets/css/parsley.css" type="text/css" rel="stylesheet">
         <link href="content/assets/css/red.css" type="text/css" rel="stylesheet">
@@ -39,7 +39,7 @@
                             <li><a href="admin/categoria">Categoria</a></li>
                             <li><a href="admin/produto">Produto</a></li>
                             <li><a href="admin/cargo">Cargo</a></li>
-                            <li><a href="admin/usuario">Funcionário</a></li>
+                            <li><a href="admin/funcionario">Funcionário</a></li>
                             <li><a href="admin/sessao/logout"><i class="glyphicon glyphicon-log-out"></i></a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
@@ -52,9 +52,10 @@
             </div>
         </main>
 
-        <script src="content/assets/js/alertify.js"></script>
         <script src="content/assets/js/jquery-3.1.1.min.js"></script>
         <script src="content/assets/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+        <script src="content/assets/js/jquery-ui.js"></script>
+        <script src="content/assets/js/alertify.min.js"></script>
         <script src="content/assets/js/inputmask.js"></script>
         <script src="content/assets/js/inputmask.date.extensions.js"></script>
         <script src="content/assets/js/inputmask.numeric.extensions.js"></script>
@@ -62,7 +63,6 @@
         <script src="content/assets/js/jquery.inputmask.js"></script>
         <script src="content/assets/js/icheck.js"></script>
         <!--script src="content/assets/js/parsley.js"></script-->
-        <script src="content/assets/js/jquery-ui.js"></script>
 
 
 
@@ -101,19 +101,25 @@
                     radioClass: 'iradio_flat-red'
                 });
 
-                $("success").on('click', function () {
-                    reset();
-                    alertify.success("Success log message");
-                    return false;
-                });
-
                 $('#addProduto').on('shown.bs.modal', function () {
                     $('#myInput').focus()
-                })
+                });
+                                
+                <?php 
+                    if (!isset($_SESSION['message-success'])) {
+                        $_SESSION['message-success'] = array();
+                    }
+                    $alert = $_SESSION['message-success'];
+                    if (isset($alert) && is_array($alert)) {
+                        foreach ($alert as $alt) {
+                            echo 'alertify.success("'.$alt.'");';
+                        }
+                    }
+                    $_SESSION['message-success'] = array();
 
-                $(".alert").alert();
-
+                ?>
+                
             });
-        </script>
+            </script>
     </body>
 </html>

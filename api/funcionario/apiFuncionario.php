@@ -1,18 +1,18 @@
 <?php
 
-namespace api\usuario;
+namespace api\funcionario;
 
 /**
- * Description of apiCargo
+ * Description of apiFuncionario
  *
  * @author Macklyster
  */
 use libs\Model;
-use object\usuario\Usuario;
+use object\funcionario\Funcionario;
 
-class apiUsuario extends Model {
+class apiFuncionario extends Model {
 
-    public function get(Usuario $obj) {
+    public function get(Funcionario $obj) {
         $query = $this->First($this->Select("SELECT
                                                 * 
                                             FROM 
@@ -32,7 +32,7 @@ class apiUsuario extends Model {
                                 left join cargo c on f.cargo_id = c.id");
     }
 
-    public function save(Usuario $obj) {
+    public function save(Funcionario $obj) {
         if (empty($obj->id)) {
             return $this->Insert($obj, 'funcionario');
         } else {

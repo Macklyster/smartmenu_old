@@ -41,11 +41,11 @@ class Model extends Config {
             $sql = "INSERT INTO {$table} (" . implode(",", array_keys((array) $obj)) . ") VALUES ('" . implode("','", array_values((array) $obj)) . "')";
             $state = $this->con->prepare($sql);
             $state->execute(array('widgets'));
+            
+            $_SESSION['message-success'][] = 'Registro Atualizaddo com sucesso!';
         } catch (\PDOException $ex) {
             die($ex->getMessage() . " " . $sql);
         }
-        //return array('sucess'=>true, 'feedback'=>'<div class=\'alert alert-success\'>Registro foi saldo com Sucesso!</div>', 'codigo'=>$this->Last($table));
-        echo "<script>alert('Registro Salvo com sucesso!');history.back();</script>";
     }
 
     public function Update($obj, $condition, $table) {
@@ -61,7 +61,9 @@ class Model extends Config {
 
             $state = $this->con->prepare($sql);
             $state->execute(array('widgets'));
-
+            
+            $_SESSION['message-success'][] = 'Registro Atualizaddo com sucesso!';
+            
         } catch (\PDOException $ex) {
             die($ex->getMessage() . " " . $sql);
         }
@@ -75,6 +77,10 @@ class Model extends Config {
             $sql = "DELETE FROM {$table} WHERE " . implode(' AND ', $where);
             $state = $this->con->prepare($sql);
             $state->execute(array('widgets'));
+            
+            $_SESSION['message-success'][] = 'Registro Excluído com sucesso!';
+            echo "<script>history.go(-2);</script>";
+            
         } catch (\PDOException $ex) {
             die($ex->getMessage());
         }

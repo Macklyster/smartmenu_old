@@ -5,7 +5,7 @@
     <div class="panel-body">
         <div class="panel panel-heading">
             <div class="text-right">
-                <a href="./admin/usuario/formCadastro" class="btn btn-item"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
+                <a href="./admin/funcionario/formCadastro" class="btn btn-item"><i class="glyphicon glyphicon-plus"></i> Adicionar</a>
             </div>
         </div>
         <table class="table table-striped">

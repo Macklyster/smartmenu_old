@@ -5,23 +5,64 @@
     <div class="panel-body">
         <div class="panel panel-heading">
             <div class="text-right">
-                <a href="./admin/usuario/" class="btn btn-item"><i class="glyphicon glyphicon-th-list"></i> Listar</a>
+                <a href="./admin/funcionario/" class="btn btn-item"><i class="glyphicon glyphicon-th-list"></i> Listar</a>
             </div>
         </div>
-        <form id="form" action="admin/usuario/save" method="post" data-parsley-validate>
+        <form id="form" action="admin/funcionario/save" method="post" data-parsley-validate>
             <input type="hidden" name="id" value="<?php echo $view_dados->id; ?>">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="pessoa">Pessoa:</label>
-                        <input type="text" class="form-control" id="pessoa_id" name="pessoa_id" required=""
-                               value="<?php echo $view_dados->pessoa_id; ?>" placeholder="Informe o código da pessoa">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="pessoa_id" name="pessoa_id" required=""
+                                   value="<?php echo $view_dados->pessoa_id; ?>" placeholder="Informe o código da pessoa">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button" data-toggle="modal" data-target="#ModalCliente"><i class="glyphicon glyphicon-search"></i></button>
+                            </span>
+                        </div>
+
+                        <div class="modal fade" id="ModalCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Selecione o novo Funcionário</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Pessoa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php if (count($view_list) > 0): ?>
+                                                    <?php foreach ($view_list as $li): ?>
+                                                        <tr>
+                                                            <td><?php echo $li->id; ?></td>
+                                                            <td><?php echo $li->nome; ?></td>                                                            
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                <?php endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-primary">Confirmar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="cargo_id">Cargo:</label>
-                        <select class="form-control" id="cargo" name="cargo">
+                        <select class="form-control" id="cargo_id" name="cargo_id">
                             <option>Selecione um Cargo</option>
                             <?php if (count($view_list) > 0): ?>
                                 <?php foreach ($view_list as $li): ?>
@@ -61,7 +102,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="datademissao">Data Demissão:</label>
-                        <input type="text" class="form-control" id="datademissao" name="datademissao" required=""
+                        <input type="text" class="form-control" id="datademissao" name="datademissao"
                                value="<?php echo $view_dados->datademissao; ?>" placeholder="Informe a data de Demissão">
                     </div>
                 </div>

@@ -1,16 +1,16 @@
 <?php
 
-namespace object\usuario;
+namespace object\funcionario;
 
 /**
- * Description of Usuario
+ * Description of Funcionario
  *
  * @author Macklyster
  */
 
 use libs\Object;
 
-class Usuario extends Object {
+class Funcionario extends Object {
     public $id;
     public $pessoa_id;
     public $cargo_id;

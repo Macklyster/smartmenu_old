@@ -38,8 +38,6 @@ class cargoController extends Controller {
     public function save() {
         $api = new apiCargo();
         $api->save(new Cargo('POST'));
-
-//echo "<script>location.href='./admin/cargo/';</script>";
     }
 
     public function formDelete() {

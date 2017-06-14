@@ -21,8 +21,10 @@ class apiProduto extends Model {
     }
     public function save(Produto $obj){
         if (empty($obj->id)){
+            echo "<script>history.go(-2);</script>";
             return $this->Insert($obj,'produto');
         } else {
+            echo "<script>history.go(-2);</script>";
             return $this->Update($obj,array('id' => $obj->id),'produto');
         }
     }

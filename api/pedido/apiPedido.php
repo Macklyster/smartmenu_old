@@ -13,7 +13,7 @@ use object\pedido\Pedido;
 class apiPedido extends Model {
 
     public function get(Pedido $obj) {
-        $query = $this->First($this->Select("SELECT * FROM pedido WHERE id = '{$obj->id}'"));
+        $query = $this->First($this->Select("select * from pedido where id = '{$obj->id}'"));
         $this->setObject($obj, $query);
     }
 

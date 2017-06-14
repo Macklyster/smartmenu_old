@@ -14,11 +14,11 @@
                 <div class="col-md-5">
                     <div class="form-group">
                         <label for="categoria_id">Cargo:</label>
-                        <select class="form-control" id="categoria" name="categoria">
+                        <select class="form-control" id="categoria_id" name="categoria_id">
                             <option>Selecione um Cargo</option>
                             <?php if (count($view_list) > 0): ?>
                                 <?php foreach ($view_list as $li): ?>
-                                    <option value="<?php echo $li->id; ?>">
+                                    <option value="<?php echo $li->categoria_id; ?>">
                                         <?php echo $li->categoria; ?>
                                     <?php endforeach; ?>
                                 <?php endif; ?>

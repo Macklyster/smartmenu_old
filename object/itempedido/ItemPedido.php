@@ -1,6 +1,6 @@
 <?php
 
-namespace object\pedido;
+namespace object\itempedido;
 
 /**
  * Description of Pedido
@@ -10,7 +10,8 @@ namespace object\pedido;
 
 use libs\Object;
 
-class Pedido extends Object {
+class ItemPedido extends Object {
+    public $id;
     public $pedido_id;
     public $produto_id;
     public $quantidade;

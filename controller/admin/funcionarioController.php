@@ -3,20 +3,20 @@
 namespace controller\admin;
 
 /**
- * Description of cargoController
+ * Description of funcionarioController
  *
  * @author Macklyster
  */
 
-use api\usuario\apiUsuario;
+use api\funcionario\apiFuncionario;
 use libs\Controller;
-use object\usuario\Usuario;
+use object\funcionario\Funcionario;
 use api\cargo\apiCargo;
 use object\cargo\Cargo;
 
-class usuarioController extends Controller {
+class funcionarioController extends Controller {
     public function index(){
-        $api = new apiUsuario();
+        $api = new apiFuncionario();
 
         $this->dados = array(
             'list' => $api->getlist()
@@ -25,24 +25,24 @@ class usuarioController extends Controller {
         $this->view();
     }
     public function formCadastro(){
-        $Usuario = new Usuario();
-        $Usuario->id = $this->getParams(0);
+        $Funcionario = new Funcionario();
+        $Funcionario->id = $this->getParams(0);
 
-        $api = new apiUsuario();
-        $api->get($Usuario);
+        $api = new apiFuncionario();
+        $api->get($Funcionario);
                 
         $Cargo = new Cargo();
         $Cargo->id = $this->getParams(0);
         $apiCargo = new apiCargo();
         
         $this->dados = array(
-            'dados' => $Usuario,
-            'list' => $apiCargo->getlist()
+            'dados' => $Funcionario,
+            'list' => $api->getlist(), $apiCargo->getlist()
         );
         $this->view();
     }
     public function save(){
-        $api = new apiUsuario();
-        print_r($api->save(new Usuario('POST')));
+        $api = new apiFuncionario();
+        print_r($api->save(new Funcionario('POST')));
     }
 }

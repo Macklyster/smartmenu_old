@@ -31,7 +31,7 @@ class produtoController extends Controller {
         $api->get($Produto);
         
         $Categoria = new Categoria();
-        $Categoria->id = $this->getParams(0);
+        $Categoria->categoria_id = $this->getParams(0);
         $apiCategoria = new apiCategoria();
 
         $this->dados = array(

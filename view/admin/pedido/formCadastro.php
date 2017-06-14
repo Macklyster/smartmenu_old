@@ -83,10 +83,10 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php if (count($view_list) > 0): ?>
-                                                        <?php foreach ($view_list as $li): ?>
+                                                    <?php if (count($view_dados) > 0): ?>
+                                                        <?php foreach ($view_dados as $li): ?>
                                                             <tr>
-                                                                <td><?php echo $li->produto; ?></td>
+                                                                <td><?php echo $li->produto_id; ?></td>
                                                                 <td><?php echo $li->quantidade; ?></td>
                                                                 <td><?php echo $li->valorvenda; ?></td>
                                                                 <td><?php echo $li->valortotal; ?></td>
@@ -113,28 +113,28 @@
                                 <div class="col-md-3">
                                     <label for="quantidade">A vista:</label>
                                     <div class="input-group">
-                                        <input type="radio" name="avista" id="avista" class="iradio_flat-red">
+                                        <input type="radio" name="pagar" id="pagar" class="iradio_flat-red">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="quantidade">A Prazo:</label>
                                     <div class="input-group">
                                         <div class="iradio">
-                                            <input type="radio" name="aprazo" id="aprazo">
+                                            <input type="radio" name="pagar" id="pagar">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="quantidade">Débito:</label>
                                     <div class="input-group">
-                                        <input type="radio" name="debito" id="debito" class="iradio_flat-red">
+                                        <input type="radio" name="pagar" id="pagar" class="iradio_flat-red">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <label for="quantidade">Crédito:</label>
                                     <div class="input-group">
                                         <div class="iradio_flat-red">
-                                            <input tabindex="42" type="radio" name="credito" id="iCheck">
+                                            <input tabindex="42" type="radio" name="pagar" id="pagar">
                                             <ins class="iCheck-helper"></ins>
                                         </div>
                                     </div>

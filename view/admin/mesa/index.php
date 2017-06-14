@@ -73,16 +73,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if (count($view_dados) > 0): ?>
-                                            <?php foreach ($view_dados as $li): ?>
+                                        
                                                 <tr>
-                                                    <td><?php echo $li->produto; ?></td>
-                                                    <td><?php echo $li->quantidade; ?></td>
-                                                    <td><?php echo $li->valorvenda; ?></td>
-                                                    <td><?php echo $li->valortotal; ?></td>
+                                                    <td>Cerveja</td>
+                                                    <td>2</td>
+                                                    <td>20</td>
+                                                    <td>45,00</td>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                        
                                     </tbody>
                                 </table>
                                 <p>

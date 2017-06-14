@@ -1,6 +1,6 @@
 <?php
 
-namespace api\item;
+namespace api\itempedido;
 
 /**
  * Description of apiPedido
@@ -9,10 +9,10 @@ namespace api\item;
  */
 
 use libs\Model;
-use object\item\Item;
+use object\itempedido\ItemPedido;
 
-class apiItem extends Model {
-    public function get(Item $obj){
+class apiItemPedido extends Model {
+    public function get(ItemPedido $obj){
         $query = $this->First($this->Select("select
                                                     pd.id as produto_id
                                                     ,pd.produto
@@ -21,7 +21,7 @@ class apiItem extends Model {
                                                     ,ip.quantidade * pd.valorvenda as valortotal
                                             from
                                                 itempedido ip 
-                                                left join produto pd on ip.produto_id = id
+                                                left join produto pd on ip.produto_id = pd.id
                                             where pedido_id = '{$obj->id}'"));
         $this->setObject($obj, $query);
     }
@@ -36,7 +36,7 @@ class apiItem extends Model {
                                 itempedido ip 
                                 left join produto pd on ip.produto_id = id");
     }
-    public function save(Item $obj){
+    public function save(ItemPedido $obj){
         if (empty($obj->id)){
             return $this->Insert($obj,'itempedido');
         } else {

@@ -20,9 +20,11 @@ class apiCategoria extends Model {
         return $this->Select("SELECT * FROM categoria");
     }
     public function save(Categoria $obj){
-        if (empty($obj->id)){
+        if (empty($obj->categoria_id)){
+            echo "<script>history.go(-2);</script>";
             return $this->Insert($obj,'categoria');
         } else {
+            echo "<script>history.go(-2);</script>";
             return $this->Update($obj,array('id' => $obj->id),'categoria');
         }
     }
