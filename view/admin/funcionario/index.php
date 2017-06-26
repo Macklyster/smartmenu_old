@@ -15,7 +15,6 @@
                     <th>Pessoa</th>
                     <th>Cargo</th>
                     <th>Login</th>
-                    <th>Senha</th>
                     <th>Data Admissão</th>
                     <th>Data Demissão</th>
                     <th>Situação</th>
@@ -30,7 +29,6 @@
                             <td><?php echo $li->nome; ?></td>
                             <td><?php echo $li->cargo; ?></td>
                             <td><?php echo $li->login; ?></td>
-                            <td><?php echo $li->senha; ?></td>
                             <td><?php echo $li->dataadmissao; ?></td>
                             <td><?php echo $li->datademissao; ?></td>
                             <td><?php echo $li->situacao; ?></td>

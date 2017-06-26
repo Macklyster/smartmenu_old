@@ -34,8 +34,10 @@ class apiFuncionario extends Model {
 
     public function save(Funcionario $obj) {
         if (empty($obj->id)) {
+            //echo "<script>history.go(-2);</script>";
             return $this->Insert($obj, 'funcionario');
         } else {
+            //echo "<script>history.go(-2);</script>";
             return $this->Update($obj, array('id' => $obj->id), 'funcionario');
         }
     }

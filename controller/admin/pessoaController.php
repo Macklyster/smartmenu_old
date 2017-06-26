@@ -7,13 +7,13 @@ namespace controller\admin;
  *
  * @author Macklyster
  */
-
 use api\pessoa\apiPessoa;
 use libs\Controller;
 use object\pessoa\Pessoa;
 
 class pessoaController extends Controller {
-    public function index(){
+
+    public function index() {
         $api = new apiPessoa();
 
         $this->dados = array(
@@ -21,7 +21,8 @@ class pessoaController extends Controller {
         );
         $this->view();
     }
-    public function formCadastro(){
+
+    public function formCadastro() {
         $Pessoa = new Pessoa();
         $Pessoa->id = $this->getParams(0);
 
@@ -33,8 +34,10 @@ class pessoaController extends Controller {
         );
         $this->view();
     }
-    public function save(){
+
+    public function save() {
         $api = new apiPessoa();
         print_r($api->save(new Pessoa('POST')));
     }
+
 }

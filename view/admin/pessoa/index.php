@@ -44,9 +44,13 @@
                                 <a href="./admin/pessoa/formCadastro/<?php echo $li->id; ?>" title="Editar"><i class="glyphicon glyphicon-pencil text-warning"></i></a>
                             </td>
                         </tr>
+                        
                     <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
+        <div class="container">
+            <div id="piechart" style="width: 500px; height: 300px;"></div>
+        </div>
     </div>
 </div>
